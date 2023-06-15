@@ -1,0 +1,23 @@
+Design pattern
+	- reusable soln to common recurring problems
+	- template on how to solve problem
+	- best practices for programmer to solve problem
+	- tweaks required to suit given problem
+	
+	
+== Chapter 1 (Introduction) Summary ==
+	- Patterns grouped according to behaviour & structure
+	- Patterns are not complete code (just template to start)
+	
+	Goal of developer:
+		- flexible
+		- maintainable
+		- reusable
+		
+
+	4 Elements of Pattern:
+		1) Pattern Name : meaningful
+		2) Problem that it solves : Explain problem & its context.
+			- list of conditions to be met before pattern can be applied
+		3) Solution to Problem
+		4) Results & Consequence

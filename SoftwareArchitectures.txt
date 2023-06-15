@@ -1,0 +1,302 @@
+Software Architectures
+
+Layered | Microkernel | Event-Driven | Microservices | Space-Based
+
+-- Chapter 1: Introduction Keypoints --
+
+
+	No formal architecture = bad design
+		- tightly coupled (difficult to change)
+		- brittle (easily broken)
+		- lack direction / vision
+		
+		
+	Considerations:
+		- Does architecure scale?
+		- Performance characteristics
+		- Ease of change / add new features
+		- responsiveness of architecture
+		
+		
+	- Architectures define characteristics & behaviour of app
+	- different architectures = different pros & cons
+		- some highly scalable
+		- some respond quickly
+		
+
+	Architectural style = macro structure of system
+	Architectural patterns = reusable building block patterns used within Architectural style
+		- eg: Command Query Responsibility Segregation (CQRS) pattern
+			- structural separation b/w read & write ops to databases 
+		- different from design patterns
+			- architecture patterns impact structural aspect of system
+			- design patterns impact how source code is designed
+			
+		eg:
+			- Can use Builder Design Pattern to implement CQRS architecture pattern to be used in Microservices architecture
+			
+			Architectural Style -> Architectural Pattern -> Design Pattern
+			(Macro overview)		(Building block)		(Template for blocks)
+			
+			
+	- Design patterns & Architecture patterns typically combined to form a complete soln
+	- Architectural styles can be combined to form software solns.
+		- Hybrid Architectural styles common (Use the benefits from > 1 style to solve problem)
+		
+		eg:
+			- Event-driven Microservices (Events between microservices)
+			- Space-based Microservices (Processing units implemented as microservices)
+			- Event-driven Microkernel Architecture (events b/w core system & remote plug in components)
+			
+	* Must understand pros & cons of individual architecture styles before combining to solve problem
+
+
+
+
+
+=======================================================================================================
+=======================================================================================================
+=======================================================================================================
+
+
+
+
+
+-- Chapter 2: Architectural Structures & Styles --
+	- Architectural styles:
+		- existing, well-known structures to support certain nonfunctional requirements 
+		eg: (https://en.wikipedia.org/wiki/List_of_system_quality_attributes)
+			- accessibility
+			- adaptability
+			- affordability
+			- configurability
+			- credibility
+			- debuggability
+			- deployability
+			- durability
+			- efficiency
+			- flexibility
+			- maintainability
+			- mobility
+			- modularity
+			- portability
+			- reliability
+			- responsiveness
+			- reusability
+			- testability
+			etc.
+			
+	
+	2 Main Architectural Classification
+		1) Monolithic (Single deployment unit)
+		2) Distributed (Multiple deployment units)
+		
+		- Different classification provides different non-functional requirements
+		- Selecting classification first step to identify suitable architectural style
+		
+		
+		== MONOLITHIC ARCHITECTURE CLASSIFICATION ==
+			(Single Deployment Unit)
+		
+			Pros: (cost & simplicity)
+				- simpler than distributed
+				- easier to design & implement
+				- inexpensive
+				- quicker to develop & deploy
+				
+			Cons:
+				- Cannot scale easily
+					- load-balancing multiple instances of app
+					- entire app must scale-up, even if only small portion is the cause for that scaling up
+						- inefficient & costly
+					
+				- low fault tolerance 
+					- out of memory causes all functionality to fail
+					- MTTR & MTTS very high (in minutes)
+						- Mean Time To Recovery
+						- Mean Time to Start
+						(high means take long time to recover = bad)
+				- poor elasticity (not able to handle vast workload changes efficiently)
+				
+			Eg of Monolithic Architecture Style:
+				1) Layered Architecture
+				2) Modular Monolith Architecture
+				3) Pipeline Architecture
+				4) Microkernel Architecture
+				
+				
+		== DISTRIBUTED ARCHITECTURE CLASSIFICATION ==
+			(Multiple Deployment Unit working together)
+				- Different services performing different functions
+			
+			Pros:
+				- more scalable
+				- more elastic (able to better handle changes in workload)
+				- better fault tolerance (1 service fails, other service still can work)
+				- much lower MTTS & MTTR (seconds)
+				- Agility (respond quickly to changes)
+					- easier to locate target service to apply changes
+					- only need to test affected service, not entire app
+					
+			Cons:
+				- Fallacies of distributed computing
+					- network is reliable
+					- latency is 0
+					- bandwidth is infinite
+					- network is secure
+					- topology doesn't change (arrangement of comms network)
+					- there is 1 admin
+					- transport cost is 0
+					- network homogeneous (single network architecture & OS)
+				- Distributed transactions
+				- consistency
+				- workflow management
+				- error handling
+				- data synchronization
+				- higher cost (both initial implementation & maintenance)
+				- more complex design planning required
+				
+			Eg of Distributed Architecture Style:
+				1) Event-driven architecture
+				2) Microservices architecture
+				3) Service-based Architecture
+				4) Service-oriented architecture
+				5) Space-based architecture
+				
+		
+		== Choosing Architecture Classification & subsequent style ==
+		
+			1) Does entire system scale or only part of system?
+			
+			2) Does system require multiple sets of architectural characteristics?
+				- customer facing feature require scalability
+				- admin does not need scalability
+				
+			3) Is system / project simple in design?
+				- simpler / smaller design can use cost effective monolithic architecture
+				- more complex business functions warrant more complex distributed architectures
+				
+			4) Need for speed / volume / high fault tolerance?
+				- then use distributed
+				
+
+-- Architecture Partitioning --
+	- Aside from monolithic & distributed, partitioning also considered
+	
+		Technically partitioned vs Domain partitioned
+		
+		
+		== Technical Partitioning ==
+				- components organized by technical usage
+				
+				
+				eg. Layered Architecture
+					- components organized by technical layers
+					
+					Presentation components : User Interface (customer queries)
+						
+					Business layer components : Business rules & core processing (customer logic)
+				
+					Persistence layer components : Database interaction (b/w business layer & database)
+				
+					Database layer : Database itself (customer tables) 
+					
+					app.presentation.customer | app.business.customer | app.persistence.customer
+					* 2nd node of namespace specifies technical layering
+
+						
+				Use Case (Technical Partitioning)
+					- Changes isolated to specific technical area
+						(eg. change UI w/o changing business logic)
+						(change business logic w/o changing data later)
+						
+				Technical Partitioned Architecture
+					- Layered
+					- Microkernel (can be technical | domain)
+					- Pipeline
+					- Event-driven
+					- Space-based
+				
+			
+		== Domain Partitioning ==
+				- components organized by domain areas
+				(presentation | business | persistence) grouped together for each domain
+				
+				
+				app.customer | app.shipping | app.payment
+				* 2nd node represent domain
+				
+				app.customer.presentation
+				app.customer.business
+				app.customer.persistence
+				
+				app.shipping.presentation
+				app.shipping.business
+				app.shipping.persistence
+				
+				
+			- Domain driven design increasing in popularity
+				- emphasize on design of domain than technical components
+				- allow teams to work closely with domain experts
+				- focus on 1 key part of system
+				
+				
+			- Changes in different domain independent of each other
+			- allow team in specific domain to pinpoint change required quickly
+			
+			
+			Domain Partitioned Architecture:
+				- Microkernel (can be either technical / domain)
+				- Microservices
+				- Modular Monolith
+				- Service-based
+				
+
+-- Which Architecture to choose? --
+	
+	Considerations:
+		- Type of changes expected in future 
+		- team structure (team organization)
+		
+		
+		Technical Partitioned (Monolithic or distributed)
+		
+			- Team organized by technical usage
+				- interface devs
+				- backend devs
+				- database devs
+				
+			- changes aligned with technical layers (does not affect other layers)
+				- changes only in user interface
+				- changes only in backend
+				- changes only in database
+				
+		Domain Partitioned (Monolithic or distributed)
+			- team organized into cross-functional teams with specialization domain
+				- frontend, backend and database in same team, in customer domain
+				- frontend, backend and database in same team, in purchase domain
+				
+			- changes are domain-scoped rather than technical scope
+				- A change affects UI, backend and database for customer domain
+				etc.
+				
+				* However, if major change in technical usage
+					- eg change in entire database type to another
+					- eg change in entire UI framework
+					
+					then domain-partitioned will be slower as the other unaffected technical
+					teammates will not be able to help
+					
+					
+					
+					
+					
+=======================================================================================================
+=======================================================================================================
+=======================================================================================================
+
+
+					
+					
+					
+-- Chapter 3: Layered Architecture --
