@@ -1,0 +1,116 @@
+-- Content --
+1) IPv4 Structure
+2) IP Classes
+3) Public vs Private IP
+4) IPv4 vs IPv6
+
+
+
+== 1 IPv4 Structure ==
+
+	- IP Address version 4
+	- Resides in Network Layer (TCP/IP)
+	
+	- Any device in network must have unique IP address to be identified
+	
+	- 32 bit (dotted-decimal) number
+	- 4-octet, 1 octet = 8 bits
+	
+	- Only possible to have ~ 4 billion IP Address for IPv4
+	
+	
+	eg:
+	
+	192.168.12.34
+	
+		- Divided into 2 parts
+			1) Network ID
+			2) Host ID
+			
+		eg: 
+		
+		192.168 : Network ID
+		12.34 : Host ID
+			
+		- Split dependent on the IPv4 class
+	
+	
+	
+== 2 IPv4 Classes ==
+	1 byte = 8 bits = 1 octet`
+	8 bits = 256 different binary combinations (i.e max decimal = 255)
+	min decimal = 0
+	max decimal = 255
+	
+	HOST VS NETWORK
+	HOST: Device connected to other devices on a network
+	NETWORK: Made up of multiple devices, each having an IP address
+	
+Class A
+
+	Range: 
+		[Network ID].[Host ID].[Host ID].[Host ID]
+		- First Block : 1 to 126
+		- No. Network possible: 126
+		- No. of Host possible: 2^8 * 2^8 * 2^8 = 16 777 216
+		- Dedicated to very large networks
+			- IBM | GE | AT&T etc.
+		- first bit always 0
+
+* IP Address 127 saved for loopback (Localhost)
+	- Any packets sent to 127 is looped back
+	
+Class B
+	Range:
+		[Network ID].[Network ID].[Host ID].[Host ID]
+		- First Block : 128 to 191
+		- No of Network possible: 16 384 (2^(16-2)) (first 2 bits used as 10)
+		- No of Host possible: 65 534 (2 ^ 16)
+		- first 2 bits always 10
+		
+Class C
+	Range:
+		[Network ID].[Network ID].[Network ID].[Host ID]
+		- First block: 192 to 223
+		- No of Network possible: 2 097 152 (2^(24-3)) (first 3 bits used as 110)
+		- No of Host possible: 254 (1 bit dedicated to network, 1 bit for broadcast)
+			- 256 - 1 - 1 = 254
+
+Class D (multicast)
+Class E (Research & Development use)
+
+
+
+* Only the first block has limitations
+* The other 3 blocks can vary from 0 to 255
+
+
+
+== 3 Public IP vs Private IP ==
+
+	Private IP:
+		- within local network
+		- Not connected to internet
+		
+		10.0.0.0
+		172.16.0.0
+		192.168.0.0
+		
+	Public IP:
+		- connected to internet
+		- follows the different classes convention
+		
+		
+== 4 IPv4 vs IPv6 ==
+
+	- IPv4
+		- 32 bits
+		- 4 billion addresses
+		- Subnetting helps to prolong usage of IPv4
+		
+	- IPv6
+		- 128 bits
+		- 340 trillion trillion trillion ip addresses
+		- if 1 billion ip address assigned per second, need 3.4e29 seconds
+		- written in hexadecimal format (8 groups of 16 bits each)
+		- 2001:0db8:0000:0000:0000:ff00:0042:9321
