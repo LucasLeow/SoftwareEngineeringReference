@@ -43,7 +43,7 @@
 	max decimal = 255
 	
 	HOST VS NETWORK
-	HOST: Device connected to other devices on a network
+	HOST: Device connected to a network
 	NETWORK: Made up of multiple devices, each having an IP address
 	
 Class A

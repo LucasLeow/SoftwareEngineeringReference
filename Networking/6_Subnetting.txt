@@ -1,0 +1,102 @@
+Background knowledge:
+
+	- Network Bit: 1
+	- Host Bit: 0
+	
+	3 Main IPv4 Classes:
+	A : 0 - 126 : N.H.H.H
+	B : 128 - 191 : N.N.H.H
+	C : 192 - 223 : N.N.N.H
+	
+	
+== Subnetting Fundamentals ==
+	- Helps to manage network allocation more efficiently
+	
+	Divide main-network into multiple sub-networks
+	
+	
+	
+	Class A: 16 mil host 
+	Class B: 64 000 host
+	Class C: 254 host
+	
+	
+	1) Subnet Mask:
+		- Specify that in IP Address, how many bits given network & host
+		- Obtained from identifying Network bits (Dependent on class + "eaten into")
+		
+			A
+			11111111 00000000 00000000 00000000
+			subnet mask = 255.0.0.0
+			
+			B
+			11111111 11111111 00000000 00000000
+			subnet mask = 255.255.0.0
+			
+			C
+			11111111 11111111 11111111 00000000
+			subnet mask = 255.255.255.0
+			
+			Subnetting always done from left to right
+			
+	How Subnet works:
+		- Network bits will "eat" into host bits
+		- Number of bits "eaten" will depend on how many subnets needed
+		
+		
+	2) CIDR: Classless interdomain Routing
+		- By referring to CIDR notation, can identify Host & Network bits
+		
+		eg:
+		For Class C IP Address:
+		
+			202.201.150.10/27 (24 bits for network + 3 for subnet)
+			- 27 is the CIDR notation (27 bits assigned to network)
+			
+			15.10.66.40/15 (15 bits assigned to network)
+			- /15 is the CIDR notation
+			
+			
+	3) Network IP
+	
+		- Every subnet will have 1st IP as network ID
+		- If main network divide into 5 subnet, will have 5 unique network ID
+		- If router want to connect to subnet, will derive the ID from the IP address
+		
+	4) Broadcast IP
+		- last IP address of subnet range
+		- used to talk to all hosts (devices) within network
+		- (broadcast) ID to all other hosts (devices)
+		
+	Suppose IP address from idx 1 to 10
+	
+	idx 1 = Network ID
+	idx 10 = Broadcast ID
+	2 - 9 will be host
+	
+	
+	
+	
+	Example:
+	
+	Given IPv4 Address: 205.150.65.0/26
+	
+	205 : Class C IPv4 address
+	/26 : 26 bits used for Network (2 bits "eaten into")
+	
+	Subnet mask (Class C)
+	11111111 11111111 11111111 11 | 000000 
+	255.255.255.192 (2^7 + 2^6 = 192)
+	
+	- Network IP: (AND operation b/w subnet mask & IPv4 Address)
+	255.255.255.192 AND 205.150.65.0
+	
+	- No. of subnets = 2^n , n = No. of bits "eaten into"
+		= 2^2 = 4 subnets possible for given eg
+		
+	- No of Hosts = 2^m - 2, m = No. of remaining bits not "eaten into" (8 - n)
+		= 2^6 - 2 = 62 hosts (devices) possible
+	
+	- Broadcast IP:
+		Host range: 205.150.65.1 to 205.150.65.62 (62 device possible)
+		Last IP will be Broadcast IP: 205.150.65.63
