@@ -1,0 +1,47 @@
+Proxy Server:
+	- A server that acts as intermediary
+	- between client requesting resource & server providing that resource
+	
+	
+Client <-> Proxy Server <-> Resource Server
+
+Purpose:
+
+	- Protect clients
+	- Proxy server will help get the request instead of direct contact with the client
+	- acts as filter / shield / firewall
+	
+	- Multiple clients can use single Proxy server
+		- can help consolidate request before making request
+	
+	- Proxy also helps in caching (Performance)
+		- if content static, can store in cache
+		- Any other client requesting same resource will draw from cache
+			- instead of making new call to resource server
+			
+	- Encryption & Decryption of Request
+		- hides sensitive data / requests	
+			- ip address is masked from resource server
+			
+
+Reverse Proxy
+	- Server side instead of client side
+	- Protects resource server
+	
+	- Multiple Resource Servers can connect to single proxy
+	
+	- Instead of exposing servers to clients, uses reverse proxy to face outside world
+	
+	- Allows for load balancing
+		- All data passed to reverse proxy server
+		- reverse proxy server helps to balance load, distributing work equally to all servers
+	
+	- Also provides caching for static content
+	
+	- Compress request size, increasing bandwidth & performance
+	
+	
+Load Balancer vs Reverse Proxy
+
+	- Reverse Proxy can be load balancer but primary purpose is for security
+	- Load Balancer primary goal is to balance load and no extra features

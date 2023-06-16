@@ -1,0 +1,156 @@
+OSI : Open System Interconnect (ISO standard)
+	- since 1976, used in 1986
+	- Network framework for data communication between different devices
+	- With this knowledge, can troubleshoot networking error easier
+		- given error message, roughly know which layer error originates
+	- Theoretical Model
+	- TCP/IP Model more practical
+		- Merging of some layers together
+		
+	
+
+7) Application Layer  - General - Send message ("Enemy is Near")
+6) Presentation Layer - Brigadier
+5) Session Layer 	  -	Colonel
+4) Transport Layer    -	Major
+3) Network Layer      -	Captain
+2) Data Link Layer    -	Lieutenant
+1) Physical Layer     -	Cadet
+
+
+Sending Information: Top to Btm (7 to 1)
+	- Request sent (by client)
+	
+Receiving Information: Btm to Top (1 to 7)
+	- Request received (by server)
+	
+	
+Mnemonic:
+	(A)ll (P)eople (S)hould (T)ry (N)ew (D)omino (P)izza
+	
+
+	General Understanding Storyline:
+		- General wants to send message to another General
+		- need to follow chain of command (protocol)
+		
+		1) General's message ("Enemy is Near") <- Request (Application layer)
+		
+		2) Brigadier encrypt message ("Eagle is Napping") (Presentation Layer)
+		
+		3) Colonel 1 calls Colonel 2 to inform of incoming msg (Session Layer) (Opens link)
+			- so that gate of HQ2 will open for HQ1 cadet
+			- communication channel set up b/w HQ1 & HQ2
+			
+		4) Major 1 divides msg into segments & attaches destination address to segment
+			- (Transport Layer)
+			- segments are pushed into a queue & send sent to Captain
+			
+				[Building105][Eagle] [Building105][is] [Building105][Napping]
+			
+		5) Captain 1 processes each segment from Major 1
+			- Captain 1 plans the route for segment to be transported (Routing details)
+			- Cadet will have to follow this route plan assigned
+			- Route optimized for safety & efficiency & speed
+			- (Network Layer)
+			
+				[Route1][Building105][Eagle] <- Packet
+
+		6) Packet passed to Lieutenant 1 (Data Link Layer)
+			- Lieutenant 1 adds [Door Number] to packet
+			- Door which info must go through
+			
+				[Door5][Route1][Building105][Eagle]
+				
+		7) Finalized packet passed to Cadet 1 (Physical Layer)
+			- Cadet 1 will binarize the packet
+			- Cadet 1 will transport binary to Cadet 2 following info on packet
+			- Cadet 2 will decode the binary back to packet info
+			
+			
+		Data -> Segments -> Packets -> Frames -> Bits (Sending)
+		
+		Bits -> Frames -> Packets -> Segments -> Data (Receiving)
+		
+- OSI ensures data:
+	- reaches on time
+	- reaches securely
+	
+
+
+
+== Actual OSI Theory ==
+
+Software Layers: (Application Firewall | VPN | SSL | Proxies)
+
+	7) Application Layer (User App Layer)
+		- closest to end-user
+		- HTTP | FTP | SMTP etc.
+		
+	6) Presentation Layer
+		- compresses | encrypts to appropriate format
+		- .ASCII | .DOCX | .JPEG etc.
+		
+	5) Session Layer
+		- Open & Closes session
+		- Establishes connection b/w sender & receiver
+		- ensures proper authorization / authentication
+		- RPC | TLS protocol etc.
+			- Request-Response protocol (RPC)
+			- Transport Layer Security (TLS)
+			- Single Sign On (SSO)
+ 	
+Interface Layer (B/w Hardware & Software)
+
+	4) Transport Layer (Load Balancers & Network Firewall)
+		- Ensure perfect delivery of message
+		- Add Transport Header to Data
+			- Port Details (Port 80 etc.)
+			- Database Port etc.
+		- TCP (Transmission Control Protocol)
+			- waits for mutual handshake before sending data
+		- UDP (User Datagram Protocol) 
+			- just send data without handshake
+			- realtime video streaming
+	
+Hardware Layers:
+
+	3) Network Layer (Routers) + (Layer 3 switches)
+		- Add Network header into packet
+		- decide the route for packet to travel
+			- the IP address of destination
+			
+	2) Data Link Layer (NIC Switches) (Layer 2 switches)
+		- Ensure error free & in sequence delivery of packets
+		- MAC address added to Packet
+			- each device have own unique MAC address
+		- Packet divided into frames
+		- Ethernet Protocol (MAC | LLC)
+			- Media Access Control (MAC)
+			- Logic Link Control (LLC)
+				- ensure error free delivery
+				- frame check sequence
+
+	1) Physical Layer (RJ 45)
+		- actual network cable
+		- converts frame to bits (binary) (electric signals)
+		- voltage pulse transported via cables
+
+
+
+
+
+TCP/IP Model (More Practical Model)
+	- Only 4 layers (Merging of some layers)
+	
+	4) Application Layer
+		- Application
+		- Presentation
+		- Session
+		
+	3) Transport Layer
+	2) Network Layer
+	
+	1) Physical Layer
+		- Data Link
+		- Physical
+	

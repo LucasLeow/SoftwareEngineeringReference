@@ -1,0 +1,40 @@
+VPN - Virtual Private Network
+	- Provides Anonymity
+		- Hiding identify
+	- Provides Privacy
+		- Hiding activity / work
+
+
+Client -> VPN Tunnel -> VPN Server -> Company Server
+
+1) Install VPN client on local machine
+
+2) VPN client establishes VPN tunnel
+	- virtual private network within public network
+	- Inside VPN Tunnel, Data is encrypted
+	- attack not possible on Tunnel
+	
+3) VPN tunnel connects to VPN server
+
+4) VPN server is connected to Company Server
+
+
+
+
+Data Protected:
+	- IP Address
+	- Location
+	- Personal Data
+	- Activity
+	
+	
+Public cannot know:
+	- Request Origin
+	- Request Destination
+	
+	
+Possible for:
+
+	Client: Singapore
+	VPN Server: Europe
+	Office Network: USA
