@@ -1,0 +1,51 @@
+API : Application Programming Interface
+
+- Interface which allows communication between 2 apps
+
+	Own App -> Request -> Other App
+	
+	Other App -> Response -> Own App
+	
+Requirements:
+
+	Other App has developed API so that Own App can access
+	
+	
+	
+Eg: Coffee Machine
+
+Own App (Self)
+Other App (Coffee Machine)
+API (Choices - Buttons)
+
+	API: (endpoints)
+		/latte
+		/americano
+		/mocha
+		
+	- use functionalities without bothering about implementation / logic
+	
+
+Real world API Scenario:
+
+
+
+Client (own computer) -> Request -> Internet -> API -> Backend Server -> Database
+
+
+eg:
+
+	Signing up with new website
+	- Choice to login with Facebook / Google
+		- utilizing FB / Google's Auth API
+		- Auth API connects to Backend Server to check logic then returns token
+		
+		
+Benefits:
+	- Hides Complexity
+	- Extends functionality
+	- Security
+	- Access Data
+	
+	- Own App don't have to code logic provided by API
+	- Makes user life easier
