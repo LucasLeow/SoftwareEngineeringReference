@@ -1,0 +1,50 @@
+== Wifi ==
+	- Wireless technology to distribute data
+	- 1 method of data distribution through the internet
+	- A family of wireless network protocols based on IEEE 802.11
+	- A LAN standard
+	- takes signal from upstream internet and spreads out using radio wave
+	
+	- typically to give internet connection within a home / business / small area
+	- Wifi Access Points can be used to provide access to wifi over more regions
+	- public resource
+	- transmitted either 2.4 GHz or 5 GHz
+
+
+== Cellular Data ==
+	- Different wireless technology
+	- Can cover up to miles of range
+	- coverage from cell towers instead of wifi access points
+	- 
+	
+	
+	
+== Bluetooth vs Wifi ==
+	- Both are radio wave technology
+	
+	Bluetooth
+		- low power
+		- wireless
+		- short-range radio wave
+		- connect nearby devices together
+		- Once connected, data can be shared between devices (pairing)
+		
+		Common usage:
+			- wireless audio streaming
+			- wireless keyboard / mouse
+			- cellphone to car audio system
+			
+		Range: ~ 10 meters
+		
+		
+	Wifi
+		- wireless
+		- allow device to connect to internet
+		
+		Most common implementation:
+			- Wifi Router connected to ISP
+			- Broadcast data received from ISP to devices connected to wifi
+			
+		Range: 30 to 90 meters
+		
+	

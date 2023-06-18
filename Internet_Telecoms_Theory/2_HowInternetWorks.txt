@@ -1,0 +1,93 @@
+Internet:
+	- Global computer network
+	- devices connected to internet can communicate with each other
+	- original purpose was sharing of information
+	- Interconnected networks using standardized communication protocols
+
+
+Data Center contains information
+
+	- webpages
+	- videos
+	- data in webpages etc.
+	
+How does data reach target audience?
+
+
+	In simplest way:
+		- through satellite
+		- signal from data center -> Satellite -> User's mobile phone / computer
+		
+		Problem:
+			- Distance from data center to satellite far away
+			- causes huge latency
+			
+	
+	Typical way:
+		- using optical fiber network
+		- Massive optical fiber network laid out world wide
+		
+		- Mobile device / computer may be connected to cellular data / wifi
+		
+		
+		eg: User watch video from youtube
+		
+			1) Video is stored in SSD inside data center's server
+				- server purpose to serve content when requested upon
+				
+			2) Every device connected to a network is assigned an IP Address
+				- Internet Service Provider will assign the IP Address 
+				
+			3) Server in Data Center also has IP Address
+				- Content stored in Server access via call to its IP Address
+				- typically domain names (so users don't have to remember IP Address)
+				
+					youtube.com : 208.65.153.238
+					facebook.com : 66.220.149.25
+					amazon.com : 72.21.211.176
+					paypal.com : 173.0.84.3
+					
+				* Server has capability to store multiple websites
+					- websites cannot be accessed with server's IP address
+					- host headers must be used to uniquely identify website
+					
+				* For large websites (facebook / youtube), entire data center dedicated for them.
+					
+			4) Domain Name System (DNS) used to keep track of domain names tied to IP address
+				- DNS Server managed by internet service provider
+				
+				
+				
+			Steps:
+				1) User enter domain name in web browser
+				2) Browser sends request to DNS Server to get IP Address
+				3) Browser forwards the request to the IP Address (server in data center)
+				4) data from SSD transmitted digitally via optical fiber cables (light pulses)
+				5) Light pulses may have to travel thousands of miles
+					- through rough terrain & under sea
+					- large companies (AT&T, Verizon, Google etc.) maintains these cables
+					- Optical fiber network backbone of internet
+					
+					eg: SEA-ME-WE3 cable
+						- SouthEastAsia-MiddleEast-WesternEurope 3  cable
+						- Led by France Telecom & China Telecom, administered by Singtel
+						- 39000 km using Wavelength Division Multiplexing 
+				
+				6) optical cable connected to home router
+				7) Router converts optical signals to electric signals
+				8) The electric signal is then transmitted via ethernet cable to computer
+				
+				* If using wirelessly:
+				
+					Cellular:
+						- Optical signal reaches cell tower
+						- cell tower converts to electrics signal then to EM Wave
+						- EM Wave transmit to wireless device 
+						
+					Wifi:
+						- Wifi Router connected to Modem (ISP)
+						- Wifi Router will emit radio wave, transmitting data from modem
+			
+	
+* Internet managed by ICANN
+	- Internet Corporation for assigned names & numbers

@@ -1,0 +1,45 @@
+- Modem & Routers are two very different devices
+- If want to be connected to internet, need to have Modem
+
+
+
+== Modem ==
+	- Maintains dedicated connection to ISP
+	- Get access to internet
+	- Computer only reads digital signals
+	- Internet consist of analog signals
+	- Modem demodulates analog signals from internet to digital signals
+	- Also modulates outgoing digital signals to analog signal
+	
+	
+	* Modem stands from
+		MOduluate DEModulate
+		
+	2 main types of Modem
+		- Cable Modem
+			- connected using coaxial cable (by ISP)
+			
+		- DSL Modem
+			- connected using phone line 
+		
+== Routers ==
+	- Comes in after the modem
+		- Business routers (larger)
+		- Small / home routers
+		
+	- Passes internet connection to all other devices
+	- can connect multiple devices using ethernet
+	- can use wireless
+	- Don't need router if only need to connect 1 device to internet
+	
+
+== Hybrids ==
+	- Modem + Router combination in 1 device
+
+
+== Switch ==
+	- Most modern routers have built-in switch inside
+	- Switch is connection extender
+	- Think of it like USB Hub extension / powerplug extension
+		- but for ethernet connection
+	

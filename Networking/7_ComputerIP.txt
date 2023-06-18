@@ -1,0 +1,48 @@
+DHCP : Dynamic Host Configuration Protocol
+
+	- How devices get IP address
+	- Assigns unique IP Address to any device connected to the network
+	- Any server, even router, can perform DHCP to assign IP address
+	
+	
+	
+	4 Steps (DHCP) To know device get IP Address when connected to network:
+		
+		* Any network device will have DHCP Client installed by default
+		
+		1) Client device sends "DHCP Discover" msg when connected to network
+			- DHCP Discover is a broadcast message (to every device on network)
+			- DHCP Discover client: 0.0.0.0 (Want to know identity)
+			
+		2) DHCP Server on network will receive DHCP Discover message
+			- DHCP Server sends "DHCP Offer" message
+			- DHCP Offer contains IP address to client
+		
+		3) DHCP Client will process the DHCP Offer & the provided IP address
+			- DHCP Client will send DHCP Request, if IP address is ok
+			- Will Request for that Offer to be accepted
+			
+		4) DHCP Server will acknowledge the Request and assign the IP Address to Client
+			- Subnet mask | Gateway | etc. will be sent in DHCP Acknowledge message
+			- Client will configure its TCP/IP network based on info provided
+			
+		* client becomes live entity over network
+	
+
+
+DHCP Scope (Occurring within DHCP Server)
+
+	- All the info that DHCP Server contains
+		- Name
+		- Description
+		- Start IP
+		- End IP
+		- Subnet Mask
+		- Excluded IPs
+		- Reserved IPs
+		- Lease Duration
+		- Router Address
+		- DNS Name & IP
+		
+biyugoiujguyfrtdguoyftyjhfvutyf7ihjgtyrf8ity7yguy
+		

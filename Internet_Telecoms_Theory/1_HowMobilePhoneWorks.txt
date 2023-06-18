@@ -1,0 +1,86 @@
+Phone's Microphone:
+	- To capture voice input
+	- Turns voice (analog) into digital signal
+		- using MEMs sensor & IC chip
+		
+Antenna:
+	- Receives the digital signal from microphone
+	- Transmits signal using EM wave
+		- 0 bits : Low frequencies
+		- 1 bits : High frequencies
+		
+	* EM Wave cannot travel far distances
+		- interferance / obstructions
+		- Earth curvature
+		
+	Solution: Cell towers
+		- Cellular technology
+		
+		- Each place on Earth scattered with cell towers
+		- Cell towers are connected via optical cables
+		- optic fiber cables underground / underwater
+		
+	- EM Wave intercepted by Cell Tower
+	- Converted to light pulses
+	- Transported to destination tower
+	- Destination tower emits EM Wave to recipient phone
+	- Reverse process to obtain digital signal to analog (sound signal)
+	
+	
+How does signal know the "Destination tower" ?
+	- Through help from Mobile Switching Center (MSC)
+	- Many Cell towers linked to a MSC
+	
+	
+	When purchase SIM Card, info is stored in <Home MSC>
+		Info includes:
+			- Service plans
+			- Current location
+			- activities 
+			
+		* If move to far away from home MSC, will switch to foreign MSC
+		Foreign MSC will communicate with Home MSC
+		Home MSC will always know which MSC area user is in
+		
+		How does Home MSC detect location of user?
+			1) Update User location after certain period
+			2) Update user location after passing pre-defined Cell tower(s)
+			3) When cellphone is turned on, update will occur
+			
+			
+Every user assigned to unique frequency
+	- However, limited frequency band / range / values
+	
+	Solution:
+		1) Frequency Slot Distribution
+			- Diff. frequency slots allocated to different cell towers
+			
+		2) Multiple Access Technique
+			- frequency slot distributed to all users in cell area
+			
+			
+
+Mobile Generations:
+	1G : Carry phone without cable
+		- wireless transmission in analog format (easily altered by external sources)
+		- Frequency Division Multiple Access technique (inefficient use of spectrum)
+		
+	2G : use digital Time Division Multiple Access (TDMA) technique
+		- or Code Division Multiple Access (CDMA)
+		- Data service + SMS + internet browsing began
+	
+	3G : - touch screen (Apple iphone 1)
+		- WideBand Code Division Multiple Access (WCDMA) technique
+		- increased Data speed
+		- GPS | Video | Voice call
+		- rise of modern smart phones
+		
+	4G: Data speed : 20 - 100 Mbps
+		- watching movies / videos possible
+		- Orthogonal Frequency Division Multiple Access technique
+		- Multi Input Multi Output (MIMO) technique
+			- multiple transmitter receiver antenna inside phone & towers
+			
+	5G : 10 Gbps
+		- Enhanced MIMO
+		- Support IoT (Smart homes / driverless cars)
