@@ -1,0 +1,79 @@
+3 Internet Access Technologies
+	- cable
+	- DSL
+	- fiber
+	
+	
+	
+== Cable Internet ==
+
+	- Uses cable modem with coaxial cable connection
+	- linked to ISP (cable television to customer)
+	- leverages on existing infrastructure from cable TV
+		- cover large areas
+	- 25 Mbps to 400 Mbps
+	
+	
+	- ISP will send "Gateway" hardware
+		- Gateway = Modem + Router + Switch (All-in-one)
+		
+	- Coaxial cable connected to Gateway
+	- Modem brings internet to home
+	- Router + switch allow for multiple device connections
+	
+	Disadvantage:
+		- All homes using the same cable from same ISP share bandwidth
+		- during peak hours, will be very slow
+		
+
+
+
+== DSL (Digital Subscriber Line) Internet ==
+
+	- Utilizes telephone lines
+	- carries both voice & internet data over telephone lines
+	- has DSL modem, connected to telephone line
+	
+	- Not to be confused with dial-up connection (also use telephone lines)
+		- but much slower
+		- can only talk on phone or use internet
+		
+	- DSL can use phone while connected to internet
+	
+	- Not as fast as cable
+	- cheaper
+	- bandwidth not shared
+	- widely available than cable
+	
+	- 5 Mbps to 100 Mbps
+
+	
+	* Asymmetric Digital Subscriber Line (ADSL)
+		- Download speed faster than upload speed
+		- mainly used in homes
+		- cheapest form of DSL
+	
+	* Symmetric Digital Subscriber Line (SDSL)
+		- Download & upload speed same
+		- mainly used in businesses
+	
+	* Very High bit DSL (VDSL)
+		- Uses copper wire
+		- only for short distances
+		- ~3 times faster than ADSL
+		
+		
+		
+		
+== Fiber Internet ==
+	- fastest internet speeds
+	- 1000 Mbps download / upload
+	- uses light to send data through fiber optic cables
+	
+	- fiber can travel much longer distances
+		- light signals not affected by EMI
+	
+	- More expensive 
+	- relatively new
+	- infrastructure not ready yet
+	- may not be available in many locations
