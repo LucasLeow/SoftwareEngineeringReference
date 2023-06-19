@@ -300,3 +300,115 @@ Layered | Microkernel | Event-Driven | Microservices | Space-Based
 					
 					
 -- Chapter 3: Layered Architecture --
+
+	- most common architectural style
+	- aka n-tier architecture.
+	- technical partitioned team
+		- presentation team (front-end)
+		- backend team
+		- database team etc.
+		
+	
+	- Components organized into horizontal layers
+	- 4 standard layers (may vary depending on use case)
+		- business layer & persistence layer combined in smaller apps
+		- larger, more complex apps may have > 5 layers
+	
+		TOP
+		
+			Presentation Layer (user interface + browser logic)
+			
+			Business Layer (business rules)
+			
+			Persistence Layer
+			
+			Database Layer
+			
+		BOTTOM
+		
+	- each layer have own role / responsibility
+	- each layer an abstraction of its work done
+		- e.g presentation layer dont need to know how backend layer works
+		
+	Distinguishing layers: (depending on langauge used)
+		- namespace
+		- package structure
+		- directory structure
+		
+		Namespace eg:
+		
+			2nd node: namespace
+			3rd node: domain (repeated for technical partition architecture)
+			
+				app.business.customer
+				app.presentation.customer
+	
+	Advantage:
+		- Separation of concerns
+			- component only deal with logic pertaining to that layer
+			- eg: presentation layer only focus on presentation logic
+		
+		- Changes in 1 layer does not affect other layers
+		eg:
+			- change frontend from angular.js to react.js
+				- does not affect presentation / persistence layer etc.
+				
+	Closed vs Open Layers:
+	
+		Closed Layers:
+		
+			- request can only move through layers sequentially
+			- no jumping from presentation to database etc.
+			- Layers of isolation
+				- Without isolation, changes in 1 layer causes changes in another layer
+					- "tightly coupled" (undesirable)
+					- complicated & costly to change
+		
+		
+		Open Layers:
+		
+			- request can bypass layers that are opened
+			
+	
+	- Important to define open & closed layers
+		- layer access restrictions
+		
+		* Side knowledge:
+			- Data Access Object (Abstract interface to database)
+			
+			
+	-- Layered Architecture Considerations --
+		- beware of architecture sinkhole anti-pattern
+			- request pass through layer with little logic performed
+			eg:
+				- presentation layer receive request to retrieve customer info
+				- request passes through business & persistence layer without much logic
+				- reaches database layer and performs simple SQL query to retrieve info
+				
+			- Rule of thumb: 80 / 20 ratio
+				- 80% requests have some logic between layers
+				- 20% simple requests with sinkhole anti-pattern
+				
+				if too much simple requests, consider making layers opened
+					- however, layer isolation compromised
+					
+					
+	-- When to use Layered Architecture --
+		- budget / time constraints
+		- no complexities in remote access, contract management and fallacies of distributed computing
+		- changes isolated to specific layers
+		- if team is technically partitioned
+		
+	-- When not to use Layered Architecture --
+		- high operational concerns (scalability, elasticity etc.)
+		- Layered Architecture difficult to scale
+		- Even if split using VMs possible, costly & inefficient
+		- fatal crash in any part of app brings down entire app
+		- if changes are mainly domain level than technical level
+		- if teams are cross-functional domain-based instead of technical based
+
+			
+			
+
+		
+

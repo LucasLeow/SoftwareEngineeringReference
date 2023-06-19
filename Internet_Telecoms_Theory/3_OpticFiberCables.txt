@@ -1,0 +1,55 @@
+Large Fiber Optic Network across the world
+	- very long fiber optic cables are laid across the world
+	
+
+== How Fiber Optic cable works ==
+	- 1 cable made up of thousands of fiber strands
+	- single strand as thin as human hair
+	
+	* refraction:
+		- bending of light waves due to different density materials
+		- concept used in optical fiber cables
+		
+	* Total Internal Reflection
+		- By making material such that light does not refract
+		- but reflect instead
+		- Light bounces within material
+		
+		(Cylindrical tube carrying light signal)
+			- regardless of shape of cable, light is internally reflected
+			- allow light signals to travel long distances
+			
+	* Cladding used to cover the core tube
+		- to ensure total internal reflection
+	
+	* Protective film placed over cladding
+	
+	* In between cables, amplifiers used to amplify light signal
+		- signal weaken due to attenuation
+		- amplifier draws power from nearby sources
+	
+	
+	
+== How Light signal transmit data ==
+	
+	- User transmitted data converted to digital bits
+	
+	- digital bits moved to antenna, converted to EM Wave
+		- High frequency (1) and low frequency (0)
+		
+	- Cell tower pick up EM Wave
+		- if high frequency, light pulse generated
+		- if low frequency, no light pulse
+		
+	- Light pulse travel through fiber optic cables network
+		- laid below ground and underwater
+		
+	- Mechanical structure to protect fiber cable
+	- Copper shell cladding over the fiber cables provide electric power
+		- for amplifiers
+		
+
+Optical cable benefits
+	- higher bandwidth
+	- does not cause EMI
+	- No side entry of light through optic fiber cable (data safe)

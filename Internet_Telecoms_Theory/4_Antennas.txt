@@ -1,0 +1,9 @@
+Antennas:
+	- transmits & receives EM Wave
+	
+	
+	Transmit:
+		- receive electric signal & transmits EM Wave
+		
+	Receive:
+		- receive EM Wave & converts to electric signal

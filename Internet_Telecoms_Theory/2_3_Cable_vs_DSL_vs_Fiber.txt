@@ -77,3 +77,5 @@
 	- relatively new
 	- infrastructure not ready yet
 	- may not be available in many locations
+	
+	
