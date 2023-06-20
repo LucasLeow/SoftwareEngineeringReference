@@ -1,0 +1,66 @@
+- Software Engineering 2 departments
+	1) Dev Team
+		- Develop Plan
+		- Design System
+		- Build System  
+		
+		
+	2) Ops Team
+		- Testing & Implementation
+		- Gives feedback to Dev Team
+			- Bugs
+			- Rework required
+	
+	
+	Problem:
+		- Dev Team waits for Ops Team to do testing & feedback
+		- causes delay & inefficiency
+		- Dev team may proceed to next project
+			- implementing feedback gets pushedback
+			
+		
+	
+	Solution:
+		- Dev team & Ops team work hand-in-hand
+		
+		* DevOps approach
+		
+			- continuous improvement & efficiency
+			- faster update to dev changes
+			
+			- several phases with several tools
+			
+				DevOps Lifecycle:
+				
+					Phase 1: Planning Phase (Dev Team) (1 to 4)
+						- Dev team lay out plans
+							- app objectives to be delivered to clients
+							
+					Phase 2: Coding Phase 
+						- Dev team begin working on code
+						- version control used to have different version of code
+						
+					Phase 3: Built Phase
+						- Code is built using built-tools
+							- Maven
+							- Gradle
+						
+					Phase 4: Test Phase
+						 - Code tested for bugs / errors
+							- Selenium (Automated testing)
+					
+					Phase 5: Deployment Phase (Pass to Ops team)
+						- After code tested, passed to Ops Team
+					
+					Phase 6: Operate Code
+						- Code deployed in working environment
+							- Docker
+							- Kubernetes
+							- Ansible
+					
+					Phase 7: Operation Monitoring
+						- Ensure smooth operations
+							- Nagios (to automate)
+						
+						*Feedback received send back to Phase 1 (Planning Phase)
+					
