@@ -1,0 +1,89 @@
+7 Deadly Sins of Programming
+
+    1) Not using Programming Standards
+        - Code Structure / syntax
+        - Should be consistent
+
+    2) Not using Design Principles
+        - Many design principles
+        - Popular (SOLID OOP design principle)
+            - Decouples code
+                - maintainable | scalable | reusable | testable
+
+            Single Responsibility
+                - Break code into modules with single responsibility
+                - using multiple Classes
+
+            Open/Close
+                - Add new functionality without making changes to existing classes
+                - By extending from current classes
+                - reduce chances of new addition breaking code
+
+            Liskov Substitution
+                - only extend modules if its the same type
+                - else, extend from something of its own type or become its own type instead
+
+            Interface Segregation
+                - modules need not know functionalities that it doesn't use
+                - use interface for functionalities & classes only implements interfaces that it requires
+
+            Dependency Inversion
+                - Classes communicate via interfaces instead of directly with each other
+                - makes classes easily swappable
+                - Classes dont need to know implementation, interfaces handle the implementation
+                - Classes only need to provide required input & receive output from other classes
+
+    3) Not using Design Patterns (not to be confused with principles)
+        - provides template for solving certain problem
+        - Many patterns under the 3 main category
+            - some are more popular, used by frameworks / corporations
+        - Creational Patterns
+            -  To make new objects / instances
+            
+            Factory Method pattern
+
+        - Structural Patterns
+            - To organize / manipulate objects
+
+            Adapter Patterns
+
+        - Behavioural Patterns
+            - How code functions & handle communication with other parts of code
+
+            Observer pattern
+    
+    4) Poor Naming conventions
+        - better to provide meaningful variable names
+        - expand abbreviations instead of keeping it too short
+        - use clear distinctions (variable names to store meaningful values)
+            - const TRIGGER = "banana"
+        - balance between verbosity (long) & conciseness(short)
+            function brainWashToSubscribe(viewer) {
+                const brain = ...
+            }
+            brain.subconcious.listenForWord((word) => {...})
+
+    5) Not testing code
+        - End-to-End testing
+            - Pretend like user
+            - harder to setup
+        
+        - Unit testing
+            - verify operation of modules in isolation
+        
+        - Integration testing
+            - to examine interaction between modules
+
+            (Apply SOLID principles for coding for ease of testing)
+                - modularized, decoupled code easier to test
+        
+    6) Not managing / estimating time correctly
+        - double / triple initial time estimate
+        - due to unforeseen circumstances
+        - better to overestimate & deliver on schedule
+        than to underestimate & deliver late
+
+    7) Rushing through project
+        - Take time if its long term project
+        - No need to rush
+        - Focus on planning / design / strong foundations
