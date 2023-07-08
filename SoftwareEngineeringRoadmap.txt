@@ -1,0 +1,86 @@
+Different types of Software Programmer / Engineering
+
+
+1) Web Developer
+
+    Front-End:
+        - HTML to add Web Structure & content
+        - CSS to style Web Content
+
+        - JS to make website interactive
+            - Frontend Framework
+                - React (most popular)
+                - Svelte
+                - Vue
+    
+    Back-End:
+        Easiest Way: Backend As a Service
+            - Firebase
+            - Pocketbase
+            - Superbase
+        
+        Comes with:
+            - Database | UserAuth | Data uploads
+
+        Next.js | Sveltekit | Express
+            - to connect to Front-end using Routes
+
+    Alternatives to JS Backend: 
+        Java (Spring Boot)
+        Ruby on Rails
+        Laravel (PHP) 
+    
+2) Mobile Developer
+    - IoS vs Android
+    - Have own dedicated toolchain
+
+    IoS: XCode IDE
+        - Swift Programming Language
+
+    Android: Android Studio
+        - Java
+        - Kotlin
+
+    Backend storage:
+        - Firebase | AWS amplify
+    
+    if want build for both platforms, need to learn both language
+
+    Cross platform framework
+        - Flutter with Dart programming language
+        - React Native with JS
+        - MS dotNet framework with C#
+
+
+3) Desktop App
+    - Swift Language for MacOS / Windows App
+    - dotNet for Windows 
+    - gtk for linux apps
+
+    Framework for all 3 platforms
+        - electron / Towery using JS
+    
+4) Hardware coding
+    - IoT Device | Robotics etc.
+    - Raspberry Pi (Linux + Python)
+    - Arduino with c-like language
+    - rabbitmq for backend
+
+5) Game development
+    - Unity Framework
+        - IDE
+    - Based on C#
+    - Game physics / design
+    - Unreal Engine Based on C++ 
+
+6) Machine Learning
+    - Requires a lot of Data
+    - Kaggle (DS competition)
+    - python | julia | R
+        - pandas | matplotlib | scikit-learn
+        - mathematics (statistics)
+        - tensorflow | pytorch
+    
+7) Low-level systems
+    - C programming language
+    - Rust
