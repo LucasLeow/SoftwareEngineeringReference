@@ -1,0 +1,181 @@
+====================================================================================================================
+2 - Observer Pattern
+====================================================================================================================
+
+    - Observer Pattern = Publishers + Subscribers
+        - Publisher = Subject
+        - Subscriber = Observer
+
+    -- Official Definition --
+        - defines the one-to-many dependency between objects
+            - when 1 object changes state, all its dependents are notified & updated automatically
+            - subscriber objects need to make a request to the publisher be added / removed
+
+    - Objects can be both subscriber & publisher
+        eg:
+            1. subscribe to receive data
+            2. process the received updated data
+            3. publish processed data to other subscribers
+
+    - There are multiple ways to implement Observer Pattern
+    - Most typical = Subject & Observer Interfaces
+
+    * Cleaner OO Design
+        - Subject is the sole owner of data
+        - Observers are dependent on Subject to update them when data changes
+
+    * Dont depend on order of notification for Observersddsd
+
+====================================================================================================================
+Problem faced
+====================================================================================================================
+
+    public void measurementChanged() {
+        float t = getTemp();
+        float h = getHumid();
+        float p = getPressure();
+
+        currentConditionDisplay.update(t, h, p);
+        statsDisplay.update(t, h, p);
+        forecastDisplay.update(t, h, p);
+    }
+
+====================================================================================================================
+Observer Pattern Loose Coupling
+====================================================================================================================
+
+    - Subject knows its Observers based on the Observer Interface implementation
+        - does not care about Observer class's implementation
+        - Subject only need the list of Objects implementing Observer Interface
+
+    - If want to have new Observer(s), only need to implement Observer interface
+        - No changes needed on the Subject
+        - Subject just deliver notifyObserver()
+
+    - Any changes to the Subject or Observer classes will not have effect on each other
+
+====================================================================================================================
+Observer Pattern Implementation 1 (Subject-Observer Interface)
+====================================================================================================================
+
+    1. Create a "Subject" Interface (objs implement this to become a Publisher)
+        - registerObserver() // add observer
+        - removeObserver() // remove observer
+        - notifyObserver() // sends notif / data
+
+        * Objects uses this interface to register / remove observers
+        * Any concrete subject need to implement this interface
+    
+    2. Create "Observer" Interface (objs implement this to become Subscriber)
+        - update()
+
+        * All potential observers need to implement Observer Interface
+            - update() called when Subject state changes
+
+    3. ConcreteSubject(s) Class
+        - registerObserver()
+        - removeObserver()
+        - notifyObserver()
+
+        - getState()
+        - setState()
+    
+    4. ConcreteObserver Class
+        - update()
+
+        // other Observer methods
+
+====================================================================================================================
+Observer Pattern Implementation 2 (Java Built-in Observer Pattern)
+====================================================================================================================
+    Problems:
+        - Observable is a class (cannot extend if a class already extending another class)
+        (favour composition over inheritance)
+        * If cannot extend Observable, then have to create own implementation
+
+    - java.util
+        - Observer Interface
+            - update()
+        - Observable Class
+            - addObserver()
+            - deleteObserver()
+            - notifyObservers()
+            - setChanged()
+
+        * Push / Pull style
+
+    1. Implement Observer Interface for desired observers (subscriber classes)
+        - call update(Observable o, Object arg)
+            - Subject that sent notif is passed in 1st arg
+            - data object passed in notifyObservers() will be in 2nd arg or null if none
+
+    2. Extend Observable Class for desired Subjects (Publisher classes)
+        - use setChanged() to signify state has changed
+            - setChanged() must be called then notifyObservers() will update values
+            - if notifyObservers() called without setChanged(), nothing will happen
+            - purpose is to give more control on when to trigger notification using setChanged() as the control
+        - call notifyObservers() or notifyObservers(Object arg)
+
+
+    -- Code Implementation --
+
+    -------- Publisher Class --------
+        import java.util.Observable
+
+        public class WeatherData extends Observable {
+            private float temp;
+            private float humid;
+            private float pressure;
+
+            public void measurementsChanged() {
+                setChanged(); // to set flag to indicate change occurred
+                notifyObservers(); // no data obj sent, using PULL model (observers pull data)
+            }
+
+            public void setMeasurements(float t, float h, float p) {
+                this.temp = t;
+                this.humid = h;
+                this.pressure = p;
+                measurementsChanged();
+            }
+
+            // Getters for Observers to "pull" data
+            public float getTemp() {
+                return temp;
+            }
+
+            public float getHumid() {
+                return humid;
+            }
+
+            public float getPressure() {
+                return pressure;
+            }
+        }
+
+    -------- Subscriber Class --------
+    import java.util.Observer
+
+    public class CurrentConditionsDisplay implements Observer, DisplayElement {
+        Observable obs;
+        private float temp;
+        private float humid;
+
+        public CurrentConditionsDisplay(Observable o) {
+            this.obs = o;
+            this.obs.addObserver(this);
+        }
+
+        public void update(Observable obs, Object arg) {
+            if (obs instanceof WeatherData) {
+                WeatherData wd = (WeatherData)obs;
+                this.temp = wd.getTemp();
+                this.humid = wd.getHumid();
+                display();
+            }
+        }
+
+        public void display() {
+            System.out.println("Current conditions: " + this.temperature + "F degrees and " + this.humidity + "% humidity");
+        }
+    }

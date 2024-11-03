@@ -1,0 +1,174 @@
+====================================================================================================================
+1 - Strategy Pattern
+====================================================================================================================
+
+    - Behavioural Design Pattern
+    - Allow selecting algo behaviour at runtime (using polymorphism concept)
+    - useful when have multiple ways of performing operation (but want to decouple)
+
+    - family of algorithms, encapsulates each algorithm, makes them interchangeable (selectable / changeable)
+    - lets the algorithm vary independently, according to clients usage
+    --------------------------------------------------------
+    Intro Problem: (Poor use of inheritance)
+    --------------------------------------------------------
+
+        Duck Superclass 
+            - quack()
+            - swim()
+            - display()
+            - fly()
+        
+        Duck Subclasses:
+            - MallardDuck
+            - RedheadDuck
+            - RubberDuck
+                - quack() {
+                    // overriden to Squeak
+                }
+            - WoodenDuck (doesnt quack() nor fly())
+                
+            
+        Problem:
+            - not all Duck subclasses behave similarly / have similar properties
+            - by having concrete implementation in superclass where subclass may vary, it causes dependency
+            - overriding unwanted behaviour in subclass is not good practice
+        
+
+    --------------------------------------------------------
+    Invalid Solution 1: Just Flyable & Quackable Interface
+    --------------------------------------------------------
+
+        - cannot have implementation in interfaces
+        - if there are 50 subclasses implementing, need to implement manually in all 50 subclasses
+        - if minor change required for fly() in Flyable, need to change all 50 subclasses
+
+
+====================================================================================================================
+Correct Solution (Strategy Pattern)
+====================================================================================================================
+
+
+    Design Principle Used:
+
+        1. Identify aspects of application that vary & separate them from what stays the same
+            - encapsulate the parts that vary so that can alter / extend without affecting the rest
+        
+        2. Program to an Interface, not an implementation
+            - you can program to an interface without having actually to use a Java interface
+            - declaration could be an abstract superclass OR interface (both works)
+
+                Programming to Implementation:
+                    Dog d = new Dog();
+                
+                Programming to Interface: 
+                    Animal a = new Dog();
+                
+                Best practice (assign concrete implementation object at runtime)
+                    - don't know WHAT actual implementation is, just care that it knows how to makeSound()
+
+                    Animal a;
+                    a = getAnimal(); // assign at runtime
+                    a.makeSound();
+        
+        3. Favour composition over inheritance (HAS-A can be better than IS-A)
+            - Duck HAS-A FlyBehaviour & QuackBehaviour which it delegates to
+            - composition gives a lot more flexibility than inheritance
+            - allows changing of behaviour at runtime (something inheritance cannot achieve)
+
+
+    From Problem above:
+
+        What varies in subclasses: (pull these methods out from Duck, create new set of classes to represent behaviour)
+            - quack()
+            - fly()
+
+        What is common in all subclasses:
+            - display()
+            - swim()
+
+    --------------------------------------------------------
+    Solution steps
+    --------------------------------------------------------
+        * subclass of Duck just needs to use correct implementation of Flying & Quacking
+        * simply create Fly / Quack classes to extend
+        * new Duck subclasses can reuse appropriate existing behaviour classes
+
+        1. create classes to represent the behaviour (behaviour classes)
+            - Set of Flying Behaviour classes (fly())
+                - FlyWithWings
+                - FlyNoWay
+                - RocketFlying
+
+            - Set of Quacking Behaviour classes (quack())
+                - Quack 
+                - Squeak
+                - MuteQuack 
+        
+        2. create 2 interfaces (FlyBehaviour & QuackBehaviour)
+            - Flying Behaviour classes will implement FlyBehaviour
+            - Quacking Behaviour classes will implement QuackBehaviour
+        
+        3. Include constructor methods to instantiate flying & quacking behaviour
+            - when instatiating new Duck, specify type of Flying & Quacking behaviour
+
+        4. Create behaviour setter methods in Duck classes
+            - can change behaviour (how duck fly / quack)during runtime
+
+
+====================================================================================================================
+Integrating Behaviour classes into Duck class
+====================================================================================================================
+
+    - Duck will delegate flying & quacking behaviour
+
+    class Duck {
+
+        // Program to interface, not implementation (concrete implementation assigned to Interface)
+        // fB & qB depends on type of concrete class assigned, don't care what, just knows that it know how to quack() / fly()
+        FlyBehaviour fB; 
+        QuackBehaviour qB;
+
+        private void performQuack() {
+            this.qB.quack();
+        }
+
+        private void performFly() {
+            this.fB.fly();
+        }
+
+        // set behaviour dynamically during runtime
+        public void setFlyBehaviour(FlyBehaviour fb) {
+            this.fB = fb;
+        }
+
+        public void setQuackBehaviour(QuachBehaviour qb) {
+            this.qB = qb;
+        }
+    }
+
+    public class MallardDuck extends Duck {
+        public MallardDuck() {
+            // instantly sets qB & fB when MallardDuck instantiated
+            this.qB = new Quack(); // Quack is the class that implements QuackBehaviour
+            this.fB = new FlyWithWings(); // FlyWithWings is the class that implements FlyBehaviour
+        }
+
+        public void display() {
+            System.out.println("I'm a Mallard Duck");
+        }
+    }
+    
+====================================================================================================================
+Example use cases
+====================================================================================================================
+
+    - When designing app, anticipate areas of changes then implement flexibility in code
+    - Principles & patterns can be applied at any stage of development lifecycle
+
+     1. Payment Processing System (PaymentStrategy)
+     2. Sorting Algorithms (SortingStrategy)
+     3. File Parsing / Formatting (FileType)
+     4. Navigation (RouteStrategy)
+
+
+

@@ -1,0 +1,21 @@
+1. Knowing OO basics does not make you a good OO designer
+2. Good OO designs are reusable, extensible & maintainable
+3. Patterns show you how to build systems with good OO design qualities
+4. Patterns are proven OO designs that work
+5. Patterns don't give code. They give design solutions to design problems
+6. Most Patterns & principles address issues of change in software
+7. Most patterns allow some part of system to vary independently of all other parts
+8. We often try to identify what varies in the system & encapsulate it (in an interface / class)
+9. Pattern provides shared vocab to maximize value when communicating with other devs
+
+
+OO Basics
+    - Abstraction
+    - Encapsulation
+    - Polymorphism
+    - Inheritance
+
+OO Principles
+    - Encapsulate what varies (see 1_Strategy Pattern)
+    - Favour composition over inheritance (Implementation)
+    - Program to Interfaces, not implementations (see 1_Strategy Pattern)
